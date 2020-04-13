@@ -1,3 +1,3 @@
 # Lightning-Bird-Missions
-Mission 1 (DONE) \
-Mission 2 (IN PROGRESS)
+Mission 1 - Hello World (DONE) \
+Mission 2 - Weekend Deal Games(IN PROGRESS)
