@@ -1,8 +1,6 @@
 package com.example.mission2;
 import lombok.Data;
-
 import java.util.UUID;
-
 @Data
 public class Deals {
     private UUID id = UUID.randomUUID();
