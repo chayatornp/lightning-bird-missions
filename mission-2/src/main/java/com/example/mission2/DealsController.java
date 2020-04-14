@@ -2,6 +2,9 @@ package com.example.mission2;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 import java.util.List;
+
+
+
 @RestController
 public class DealsController {
     @Autowired
@@ -16,9 +19,9 @@ public class DealsController {
         dealsService.createDeals(deals);
         return dealsService.getDeals();
     }
-    @DeleteMapping("/deals")  //DELETE
-    public List<Deals> deleteDeals(){
+    @DeleteMapping("/deals/")  //DELETE
+    public Object deleteDeals(){
         dealsService.deleteDeals();
-        return dealsService.getDeals();
+        return dealsService.getMessage();
     }
 }

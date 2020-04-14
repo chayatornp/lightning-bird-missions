@@ -7,18 +7,24 @@ import java.util.List;
 
 public class DealsService {
     private List<Deals> dealsList = new ArrayList<>(Arrays.asList(
-            new Deals("1","Dead by Daylight","$19.99","$9.99"),
-            new Deals("2","Red Dead Redemption 2","$59.99","$29.99"),
-            new Deals("3","Battle Field V","$49.99","$19.99")
+            new Deals("Dead by Daylight","$19.99","$9.99"),
+            new Deals("Red Dead Redemption 2","59.99","$29.99"),
+            new Deals("Battle Field V","$49.99","$19.99")
     ));
+    private String emptyMessage = "The list has been cleared";
 
     public List<Deals> getDeals() {
         return dealsList;
+    }
+    public String getMessage(){
+        return emptyMessage;
     }
     public void createDeals(Deals deals){
         dealsList.add(deals);
     }
     public void deleteDeals() {
         dealsList.removeAll(dealsList);
+
     }
 }
+
