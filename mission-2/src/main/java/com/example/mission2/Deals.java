@@ -1,8 +1,8 @@
 package com.example.mission2;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 import java.util.UUID;
-@Data
-public class Deals {
+public @Data @NoArgsConstructor class Deals {
     private UUID id = UUID.randomUUID();
     private String name;
     private String originalPrice;
@@ -11,6 +11,12 @@ public class Deals {
         this.name = name;
         this.originalPrice = originalPrice;
         this.discountedPrice = discountedPrice;
+    }
+    public String getName() {
+        return name;
+    }
+    public UUID getId() {
+        return id;
     }
 }
 

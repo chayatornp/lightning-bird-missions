@@ -3,6 +3,8 @@ import org.springframework.stereotype.Service;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
+import java.util.UUID;
+
 @Service
 public class DealsService {
     private List<Deals> dealsList = new ArrayList<>(Arrays.asList(
@@ -10,12 +12,12 @@ public class DealsService {
             new Deals("Red Dead Redemption 2","59.99","$29.99"),
             new Deals("Battle Field V","$49.99","$19.99")
     ));
-    private String emptyMessage = "The list has been cleared";
-    private String errorMessage = "ERROR Inserting Game Deals";
+
     public List<Deals> getDeals() {
         return dealsList;
     }
     public String getEmptyMessage(){
+        String emptyMessage = "The list has been cleared";
         return emptyMessage;
     }
     public void createDeals(Deals deals){
@@ -31,7 +33,15 @@ public class DealsService {
                 new Deals("Battle Field V","$49.99","$19.99")
         ));
     }
-    public String getErrorMessage() {
-        return errorMessage;
+    public List<Deals> updateDeals(Deals deals, UUID id) {
+        int counter = 0;
+        for(Deals deals1: dealsList){
+            if(deals1.getId().equals(id)){
+                dealsList.set(counter,deals);
+            }
+            counter++;
+
+        }
+        return null;
     }
 }
