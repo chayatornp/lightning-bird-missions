@@ -1,3 +1,4 @@
 # Lightning-Bird-Missions
-Mission 1 - Hello World \
-Mission 2 - Weekend Deal Games
+Mission 1 - Spring Boot Introduction \
+Mission 2 - CRUD & Lombok\
+Mission 3 - Relational Database
