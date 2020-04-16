@@ -9,13 +9,13 @@ import java.util.UUID;
 public class DealsService {
     private List<Deals> dealsList = new ArrayList<>(Arrays.asList(
             new Deals("Dead by Daylight","$19.99","$9.99"),
-            new Deals("Red Dead Redemption 2","59.99","$29.99"),
+            new Deals("Red Dead Redemption 2","$59.99","$29.99"),
             new Deals("Battle Field V","$49.99","$19.99")
     ));
-
     public List<Deals> getDeals() {
         return dealsList;
     }
+
     public String getEmptyMessage(){
         String emptyMessage = "The list has been cleared";
         return emptyMessage;
@@ -29,19 +29,27 @@ public class DealsService {
     public void resetDeals() {
                 dealsList = new ArrayList<>(Arrays.asList(
                 new Deals("Dead by Daylight","$19.99","$9.99"),
-                new Deals("Red Dead Redemption 2","59.99","$29.99"),
+                new Deals("Red Dead Redemption 2","$59.99","$29.99"),
                 new Deals("Battle Field V","$49.99","$19.99")
         ));
     }
-    public List<Deals> updateDeals(Deals deals, UUID id) {
-        int counter = 0;
+    public void updateDeals(Deals deals, UUID id) {
         for(Deals deals1: dealsList){
-            if(deals1.getId().equals(id)){
-                dealsList.set(counter,deals);
+            if(deals1.getId().equals(id))
+            {
+                deals1.name = deals.name;
+                deals1.originalPrice = deals.originalPrice;
+                deals1.discountedPrice = deals.discountedPrice;
             }
-            counter++;
-
         }
-        return null;
     }
+    public void deleteDealsById(UUID id) {
+        for(Deals deals1: dealsList){
+            if(deals1.getId().equals(id))
+            {
+                dealsList.remove(deals1);
+            }
+        }
+    }
+
 }

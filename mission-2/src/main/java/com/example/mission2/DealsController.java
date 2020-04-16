@@ -7,6 +7,7 @@ import java.util.UUID;
 public class DealsController {
     @Autowired
     private DealsService dealsService;
+
     @GetMapping("/deals")       //GET
     public List<Deals> getDeals(){
         return dealsService.getDeals();
@@ -16,17 +17,20 @@ public class DealsController {
         dealsService.createDeals(deals);
         return dealsService.getDeals();
     }
-    @DeleteMapping("/deals/")  //DELETE
-    public Object deleteDeals(){
-        dealsService.deleteDeals();
-        return dealsService.getEmptyMessage();
-    }
-    @PutMapping("/deals/{id}")  //PUT
+    @PutMapping("/deals/{id}")  //PUT BY ID
     public List<Deals> updateDeals(@RequestBody Deals deals, @PathVariable UUID id){
         dealsService.updateDeals(deals, id);
         return dealsService.getDeals();
-
-
+    }
+    @DeleteMapping("/deals/{id}") //DELETE BY ID
+    public Object deleteDealsById(@PathVariable UUID id){
+        dealsService.deleteDealsById(id);
+        return dealsService.getDeals();
+    }
+    @DeleteMapping("/deals/")  //DELETE ALL
+    public Object deleteDeals(){
+        dealsService.deleteDeals();
+        return dealsService.getEmptyMessage();
     }
     @PostMapping("/deals/reset")  //RESET LIST
     public List<Deals> resetDeals(){
