@@ -27,7 +27,7 @@ public class DealsController {
         dealsService.updateDeals(deals, id);
     }
     @DeleteMapping("/deals/{id}") //DELETE DEAL BY ID
-    @ResponseStatus(HttpStatus.ACCEPTED)
+    @ResponseStatus(HttpStatus.NO_CONTENT)
     public void deleteDealsById(@PathVariable String id) {
         dealsService.deleteDealsById(id);
     }
