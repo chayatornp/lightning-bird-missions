@@ -3,7 +3,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.core.RowMapper;
 import org.springframework.stereotype.Service;
-import javax.sql.DataSource;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.List;
@@ -12,7 +11,6 @@ import java.util.List;
 public class DealsService {
     @Autowired
     JdbcTemplate jdbcTemplate;
-
     class DealsRowMapper implements RowMapper<Deals> {
         @Override
         public Deals mapRow(ResultSet rs, int rowNum) throws SQLException {
@@ -31,7 +29,6 @@ public class DealsService {
     private String updateListById ="UPDATE tbl_deals SET deals_name=?,deals_original_price=?,deals_discounted_price=? WHERE deals_ref_id=?";
     private String deleteListById ="DELETE FROM tbl_deals WHERE deals_ref_id=?";
 
-
     public List<Deals> getDeals() {
         return jdbcTemplate.query(queryAll, new DealsRowMapper());
     }
@@ -47,3 +44,4 @@ public class DealsService {
     public void deleteDealsById(String id) {
         jdbcTemplate.update(deleteListById, id);
     }
+}
