@@ -27,9 +27,4 @@ public class DealsController {
     public void deleteDealsById(@PathVariable String id) {
         dealsService.deleteDealsById(id);
     }
-    @DeleteMapping("/deals/")  //DELETE ALL DEALS
-    public Object deleteDeals() {
-        dealsService.deleteDeals();
-        return dealsService.getEmptyMessage();
-    }
 }
