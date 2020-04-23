@@ -4,4 +4,3 @@ GET localhost:8080/deals/{id} \
 POST localhost:8080/deals/ \
 PUT localhost:8080/deals/{id} \
 DELETE localhost:8080/deals/{id} \
-DELETE localhost:8080/deals/
