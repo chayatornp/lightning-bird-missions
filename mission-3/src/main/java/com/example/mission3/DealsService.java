@@ -24,17 +24,14 @@ public class DealsService {
             return deals;
         }
     }
-    private String emptyMessage = "The table is empty";
+
     private String queryAll = "SELECT * FROM tbl_deals";
     private String queryById ="SELECT * FROM tbl_deals WHERE deals_ref_id=?";
     private String addList = "INSERT tbl_deals(deals_ref_id,deals_name, deals_original_price, deals_discounted_price) VALUES (MID(UUID(),1,36),?,?,?)";
     private String updateListById ="UPDATE tbl_deals SET deals_name=?,deals_original_price=?,deals_discounted_price=? WHERE deals_ref_id=?";
     private String deleteListById ="DELETE FROM tbl_deals WHERE deals_ref_id=?";
-    private String deleteAll = "TRUNCATE TABLE tbl_deals";
 
-    public Object getEmptyMessage() {
-        return emptyMessage;
-    }
+
     public List<Deals> getDeals() {
         return jdbcTemplate.query(queryAll, new DealsRowMapper());
     }
@@ -50,7 +47,3 @@ public class DealsService {
     public void deleteDealsById(String id) {
         jdbcTemplate.update(deleteListById, id);
     }
-    public void deleteDeals() {
-        jdbcTemplate.execute(deleteAll);
-    }
-}
